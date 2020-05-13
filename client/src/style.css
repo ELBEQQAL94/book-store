@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Martel:wght@200&family=Roboto:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    /* Main Colors */
+    --primary-color: #0c0a0a;
+    --second-color: #f5c518;
+    --third-color: #ffffff;
+    --forth-color: #010101;
+    --fifth-color: #0661e9;
+
+    /* Main Fonts Family */
+    --primary-font-family: 'Roboto', sans-serif;
+    --second-font-family: 'Inconsolata', monospace;
+    --third-font-family: 'Martel', serif;
+}
+
+
+body {
+    background-color: var(--forth-color);
+}
+
+/* Background Colors */
+.bg-primary-color {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-second-color {
+    background-color: var(--second-color) !important;
+}
+
+.bg-third-color {
+    background-color: var(--third-color) !important;
+}
+
+.bg-forth-color {
+    background-color: var(--forth-color) !important;
+}
+
+.bg-fifth-color {
+    background-color: var(--fifth-color) !important;
+}
+/* Background Colors */
+
+/* Colors */
+.primary-color {
+    color: var(--primary-color) !important;
+}
+
+.second-color {
+    color: var(--second-color) !important;
+}
+
+.third-color {
+    color: var(--third-color) !important;
+}
+
+.forth-color {
+    color: var(--forth-color) !important;
+}
+
+.fifth-color {
+    color: var(--fifth-color) !important;
+}
+/* Colors */
+
+
+/* Fonts Family */
+.font-roboto {
+    font-family: var(--primary-font-family);
+}
+
+.font-inconsolata {
+    font-family: var(--second-font-family) !important;
+}
+
+.font-martel {
+    font-family: var(--third-color) !important;
+}
+/* Fonts Family */
+
+/* Headers */
+.h1 {
+    font-size: 3rem !important;
+}
+/* Headers */
+
+
+/* Top Nav Bar */
+
+/* Logo */
+.font-brand-size {
+    font-size: 3rem;
+}
+/* Logo */
+
+
+/* Top Nav Bar */
+
+/* Trash Icon */
+.trash-icon, .add-book-icon {
+    transition: transform .5s linear;
+    cursor: pointer;
+}
+
+.trash-icon:hover {
+    transform: scale(1.2);
+    color: var(--second-color) !important;
+}
+
+.add-book-icon:hover {
+    transform: scale(1.2);
+    color: var(--third-color) !important;
+}
+/* Trash Icon */
+
+
+
+/*
+####################################################
+            M E D I A  Q U E R I E S
+####################################################
+*/
+ 
+/* Small devices (landscape phones, 544px and up) */
+@media (max-width: 360px) {  
+    .font-brand-size {font-size:2rem;} 
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+}
+ 
