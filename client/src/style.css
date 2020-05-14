@@ -119,6 +119,12 @@ body {
 }
 /* Trash Icon */
 
+/* Validation Error */
+.error {
+    color: red !important;
+}
+/* Validation Error */
+
 
 
 /*
