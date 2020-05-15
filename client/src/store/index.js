@@ -12,6 +12,7 @@ export default new Vuex.Store({
     books: [],
     count: 0,
     loading: false,
+    drawer: false,
     error: {},
   },
   mutations: {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     SET_COUNT(state, books) {
       state.count = books.length;
+    },
+    SET_DRAWER(state) {
+      state.drawer = !state.drawer;
     },
   },
   actions: {
@@ -43,6 +47,9 @@ export default new Vuex.Store({
         .catch((err) => {
           commit('ERROR', err.data);
         });
+    },
+    toggleDrawer({ commit }) {
+      commit('SET_DRAWER');
     },
   },
   modules: {

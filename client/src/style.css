@@ -8,7 +8,7 @@
 
 :root {
     /* Main Colors */
-    --primary-color: #0c0a0a;
+    --primary-color: #333232;
     --second-color: #f5c518;
     --third-color: #ffffff;
     --forth-color: #010101;
@@ -20,9 +20,8 @@
     --third-font-family: 'Martel', serif;
 }
 
-
-body {
-    background-color: var(--forth-color);
+#app {
+    background-color: var(--forth-color) !important;
 }
 
 /* Background Colors */
@@ -69,7 +68,6 @@ body {
 }
 /* Colors */
 
-
 /* Fonts Family */
 .font-roboto {
     font-family: var(--primary-font-family);
@@ -84,11 +82,17 @@ body {
 }
 /* Fonts Family */
 
-/* Headers */
+
+/* Headings */
 .h1 {
     font-size: 3rem !important;
 }
-/* Headers */
+/* Headings */
+
+a {
+    text-decoration: none !important;
+    color: var(--third-color) !important;
+}
 
 
 /* Top Nav Bar */

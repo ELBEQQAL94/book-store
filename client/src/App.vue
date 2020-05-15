@@ -1,24 +1,21 @@
 <template>
-  <main>
+  <v-app>
     <top-bar />
-    <router-view/>
-    <Footer />
-  </main>
+    <v-content>
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
 import TopBar from '@/components/main/TopBar.vue';
-import Footer from '@/components/main/Footer.vue';
 
 export default {
   name: 'App',
   components: {
     TopBar,
-    Footer,
   },
 };
 </script>
-
-<style>
-
-</style>

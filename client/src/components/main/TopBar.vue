@@ -1,81 +1,44 @@
 <template>
-<div class="bg-primary-color">
-  <nav class="navbar navbar-expand-lg navbar-dark container">
-    <router-link
-        class="
-        navbar-brand
-        third-color
-        font-inconsolata
-        font-brand-size
-        "
-        to="/register"
-        title="store book"
-    >
-      Store Books
-    </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link
-            class="nav-link third-color"
-            to="/store"
-            title="store"
-          >
-            Store
-            <span class="badge bg-second-color">{{count}}</span>
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link third-color"
-            to="/profile"
-            title="username"
-          >
-            EL BEQQAL YOUSSEF
-          </router-link>
-        </li>
-        <!-- <li class="nav-item">
-          <router-link
-            class="nav-link third-color text-uppercase"
-            to="/register"
-            title="register"
-          >
-            register
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link third-color text-uppercase"
-            to="/login"
-            title="login"
-          >
-            login
-          </router-link>
-        </li> -->
-      </ul>
-    </div>
-  </nav>
-</div>
+  <div>
+    <v-app-bar app color="#333232" dark>
+      <div class="d-flex align-center justify-center">
+        <v-app-bar-nav-icon class="d-md-none" @click="toggle"></v-app-bar-nav-icon>
+        <router-link to="/register" title="store books" text>
+          <span class="mr-2 font-inconsolata font-brand-size">S.B</span>
+        </router-link>
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn class="d-none d-sm-flex" text to="/store" title="store">
+        <v-badge color="green" :content="count">Store</v-badge>
+      </v-btn>
+
+      <v-btn class="d-none d-sm-flex" to="/profile" title="username" text>
+        <span class="mr-2">ELBEQQAL YOUSSEF</span>
+      </v-btn>
+    </v-app-bar>
+
+    <navigation-drawer :drawer="drawer" :count="count" />
+  </div>
 </template>
 
 <script>
+import NavigationDrawer from '@/components/main/NavigationDrawer.vue';
 import { mapState } from 'vuex';
 
 export default {
   name: 'TopBar',
-  computed: mapState([
-    'count',
-  ]),
+  components: {
+    NavigationDrawer,
+  },
+  computed: {
+    ...mapState(['count', 'drawer']),
+  },
+  methods: {
+    toggle() {
+      this.$store.dispatch('toggleDrawer');
+    },
+  },
 };
 </script>

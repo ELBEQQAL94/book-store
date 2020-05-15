@@ -1,6 +1,6 @@
 <template>
   <section class="container mt-5">
-    <h1 class="text-capitalize mb-3 font-bold font-brand-size">
+    <h1 class="text-capitalize mb-3 font-inconsolata third-color font-brand-size">
       my books
       <span title="add book" data-toggle="modal" data-target="#Modal">
         <svg

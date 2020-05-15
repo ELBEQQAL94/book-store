@@ -1,13 +1,13 @@
 <template>
 <div>
-  <div v-for="book in books" :key="book.id" >
+  <v-col cols="12" v-for="book in books" :key="book.id" >
     <Book
       :title="book.title"
       :description="book.description"
       :publishedDate="book.published_at"
       :createdDate="book.created_at"
       />
-  </div>
+  </v-col>
 </div>
 </template>
 
