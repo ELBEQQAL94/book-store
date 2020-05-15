@@ -1,25 +1,7 @@
 <template>
   <section class="container mt-5">
     <h1 class="text-capitalize mb-3 font-inconsolata third-color font-brand-size">
-      my books
-      <span title="add book" data-toggle="modal" data-target="#Modal">
-        <svg
-          class="add-book-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="0.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="12" y1="8" x2="12" y2="16" />
-          <line x1="8" y1="12" x2="16" y2="12" />
-        </svg>
-      </span>
+      my books <VModel />
     </h1>
     <hr class="bg-second-color" />
     <Books />
@@ -29,13 +11,13 @@
 
 <script>
 import Books from '@/components/main/Books.vue';
-import Modal from '@/components/main/Modal.vue';
+import VModel from '@/components/main/VModel.vue';
 
 export default {
   name: 'Store',
   components: {
     Books,
-    Modal,
+    VModel,
   },
 };
 </script>

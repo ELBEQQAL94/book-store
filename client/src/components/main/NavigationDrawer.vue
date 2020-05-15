@@ -12,7 +12,7 @@
 
           <v-list-item>
             <v-list-item-title>
-              <v-btn to="/profile" title="username" text>
+              <v-btn to="/profile" title="username" text >
                 <span class="mr-2">ELBEQQAL YOUSSEF</span>
               </v-btn>
             </v-list-item-title>

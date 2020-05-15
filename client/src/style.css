@@ -70,7 +70,7 @@
 
 /* Fonts Family */
 .font-roboto {
-    font-family: var(--primary-font-family);
+    font-family: var(--primary-font-family) !important;
 }
 
 .font-inconsolata {
@@ -79,6 +79,10 @@
 
 .font-martel {
     font-family: var(--third-color) !important;
+}
+
+.font-mono {
+    font-family: monospace;
 }
 /* Fonts Family */
 
@@ -93,7 +97,6 @@ a {
     text-decoration: none !important;
     color: var(--third-color) !important;
 }
-
 
 /* Top Nav Bar */
 

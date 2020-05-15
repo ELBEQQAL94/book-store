@@ -17,5 +17,8 @@ export default {
   components: {
     TopBar,
   },
+  mounted() {
+    this.$store.dispatch('loadBooks');
+  },
 };
 </script>
