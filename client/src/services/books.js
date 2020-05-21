@@ -40,17 +40,16 @@ class Books {
   }
 
   delete() {
-    console.log('Book Id: ', this.book.id);
-    // this.commit('LOADING');
-    // axios
-    //   .delete(`${process.env.VUE_APP_HOST_API}/book/${this.id}`)
-    //   .then(() => {
-    //     this.commit('DELETE_BOOK_FROM_STATE', this.id);
-    //     this.commit('LOADING');
-    //   })
-    //   .catch((err) => {
-    //     this.commit('ERROR', err.data);
-    //   });
+    this.commit('LOADING');
+    this.commit('DELETE_BOOK_FROM_STATE', this.book.id);
+    axios
+      .delete(`${process.env.VUE_APP_HOST_API}/book/${this.book.id}`)
+      .then(() => {
+        this.commit('LOADING');
+      })
+      .catch((err) => {
+        this.commit('ERROR', err.data);
+      });
   }
 }
 

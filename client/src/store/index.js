@@ -39,7 +39,7 @@ export default new Vuex.Store({
       state.success = true;
     },
     DELETE_BOOK_FROM_STATE(state, id) {
-      state.books.filter((book) => book.id !== id);
+      state.books = state.books.filter((book) => book.id !== id);
     },
   },
   actions: {
