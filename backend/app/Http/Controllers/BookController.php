@@ -38,9 +38,9 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = $request->isMethod('put') ? Book::findOrFail($request->book_id): new Book;
+        $book = $request->isMethod('put') ? Book::findOrFail($request->id): new Book;
 
-        $book->id = $request->input('book_id');
+        $book->id = $request->input('id');
         $book->title = $request->input('title');
         $book->description = $request->input('description');
         $book->author = $request->input('author');

@@ -21,6 +21,20 @@ class Books {
       });
   }
 
+  getOneResource() {
+    this.commit('LOADING');
+    axios
+      .get(`${process.env.VUE_APP_HOST_API}/book/${this.book.id}`)
+      .then((res) => {
+        const book = res.data.data;
+        this.commit('SET_BOOK', book);
+        this.commit('LOADING');
+      })
+      .catch((err) => {
+        this.commit('ERROR', err.data);
+      });
+  }
+
   post() {
     this.commit('LOADING');
     axios
@@ -36,7 +50,17 @@ class Books {
   }
 
   put() {
-    console.log('edit book', this);
+    this.commit('LOADING');
+    axios
+      .put(`${process.env.VUE_APP_HOST_API}/book`, this.book)
+      .then(() => {
+        this.commit('ADD_BOOK_TO_STATE', this.book);
+        this.commit('ADD_BOOK_SUCCESS');
+        this.commit('LOADING');
+      })
+      .catch((err) => {
+        this.commit('ERROR', err.data);
+      });
   }
 
   delete() {

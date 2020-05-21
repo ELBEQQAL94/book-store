@@ -17,13 +17,19 @@ const routes = [
   },
   {
     path: '/store',
-    name: 'store',
+    name: 'Store',
     component: () => import('@/views/Store.vue'),
   },
   {
     path: '/profile',
-    name: 'profile',
+    name: 'Profile',
     component: () => import('@/views/ProfileUser.vue'),
+  },
+  {
+    path: '/edit-book/:id',
+    name: 'EditBook',
+    component: () => import('@/views/EditBook.vue'),
+    params: true,
   },
 ];
 

@@ -21,7 +21,7 @@
     <v-card-actions>
       <v-btn color="orange" text>Share</v-btn>
       <v-btn @click="remove(id)" color="#F44336" text>Remove</v-btn>
-      <v-btn color="primary" text>Eddit</v-btn>
+      <v-btn :to="{ name: 'EditBook', params: {id}}" color="primary" text>Eddit</v-btn>
     </v-card-actions>
   </v-card>
 </template>

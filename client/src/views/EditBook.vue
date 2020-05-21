@@ -1,28 +1,9 @@
 <template>
-  <v-dialog v-model="dialog" width="600px">
-    <template v-slot:activator="{ on }">
-      <span v-on="on">
-        <svg
-          class="add-book-icon"
-          width="48"
-          height="44"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="0.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <line x1="12" y1="8" x2="12" y2="16" />
-          <line x1="8" y1="12" x2="16" y2="12" />
-        </svg>
-      </span>
-    </template>
+  <section class="container mt-5">
+    <h1 class="text-capitalize mb-3 font-inconsolata third-color font-brand-size">
+      Edit Book
+    </h1>
     <v-card>
-      <v-card-title>
-        <span class="headline">Add Book</span>
-      </v-card-title>
       <v-form ref="form" v-model="valid" :lazy-validation="lazy">
         <v-card-text>
           <v-text-field
@@ -71,45 +52,49 @@
             color="success"
             class="mr-4"
             @click="validate"
-            >Add Book</v-btn>
+            >Save</v-btn>
 
           <v-btn
             color="error"
             class="mr-4"
-            @click="dialog = false"
-            >Close</v-btn>
+            @click="redirectToStore"
+            >Cancel</v-btn>
         </v-card-actions>
       </v-form>
     </v-card>
-  </v-dialog>
+  </section>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import validations from '@/utils/validations';
 
 export default {
-  name: 'Modal',
+  name: 'EditBook',
   data() {
     return {
-      dialog: false,
       valid: true,
       lazy: false,
-      book: {
-        title: '',
-        author: '',
-        description: '',
-        published_at: '',
-        image_url: '',
-      },
       ...validations,
     };
   },
+  mounted() {
+    this.$store.dispatch('loadBook', this.$route.params.id);
+  },
+  computed: {
+    ...mapState({
+      book: (state) => state.book,
+    }),
+  },
   methods: {
+    redirectToStore() {
+      this.$router.push('/store');
+    },
     validate() {
       this.$refs.form.validate();
       if (this.$refs.form.validate()) {
         this.dialog = false;
-        this.$store.dispatch('addBook', this.book);
+        this.$store.dispatch('editBook', this.book);
       }
     },
   },

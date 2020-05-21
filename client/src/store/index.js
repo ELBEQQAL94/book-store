@@ -9,6 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     books: [],
+    book: {},
     count: 0,
     loading: false,
     drawer: false,
@@ -40,6 +41,18 @@ export default new Vuex.Store({
     },
     DELETE_BOOK_FROM_STATE(state, id) {
       state.books = state.books.filter((book) => book.id !== id);
+      state.count -= 1;
+    },
+    EDIT_BOOK(state, book) {
+      state.books = state.books.map((b) => {
+        if (b.id === book.id) {
+          return book;
+        }
+        return b;
+      });
+    },
+    SET_BOOK(state, book) {
+      state.book = book;
     },
   },
   actions: {
@@ -47,9 +60,18 @@ export default new Vuex.Store({
       const books = new Books(commit);
       books.get();
     },
+    loadBook({ commit }, id) {
+      const book = this.state.books.find((b) => b.id === id);
+      const books = new Books(commit, book);
+      books.getOneResource();
+    },
     addBook({ commit }, book) {
       const books = new Books(commit, book);
       books.post();
+    },
+    editBook({ commit }, book) {
+      const books = new Books(commit, book);
+      books.put();
     },
     deleteBook({ commit }, id) {
       const book = this.state.books.find((b) => b.id === id);
